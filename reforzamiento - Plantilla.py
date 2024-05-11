@@ -156,8 +156,14 @@ def camino_mas_corto(inicio_x, inicio_y):
 
 # Dibuja el camino más corto desde una posición hasta la meta
 def dibuja_camino_mas_corto(inicio_x, inicio_y):
-    # Escribe aquí tu codigo
-    pass
+    camino = camino_mas_corto(inicio_x, inicio_y)
+
+    for i, j in camino:
+        dibujar_laberinto(i, j)
+        ventana.fill((0, 0, 0))
+        dibujar_laberinto(i, j)
+        pygame.display.flip()
+        sleep(0.1)
 
 
 # Prueba tu inteligencia artificial para resolver el laberinto desde varias posiciones iniciales
