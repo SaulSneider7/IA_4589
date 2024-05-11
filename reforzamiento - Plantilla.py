@@ -134,15 +134,24 @@ for episode in range(1000):
             else:
                 print("Perdiste")
             break
-        
+
 print('Entrenamiento completado')
 # -------------------------------------------------------------------------
 # Sesión 4 - Resultados del entrenamiento
 
 # Define una función que va a elegir siempre el camino más corto entre un punto inicial y la meta
 def camino_mas_corto(inicio_x, inicio_y):
-    # Escribe aquí tu codigo
-    pass
+    if fin_del_juego(inicio_x, inicio_y):
+        return []
+    
+    fila_actual, columna_actual = inicio_x, inicio_y
+    camino = [[fila_actual, columna_actual]]
+
+    while not fin_del_juego(fila_actual, columna_actual):
+        accion_actual = siguiente_accion(fila_actual, columna_actual, 0.)
+        fila_actual, columna_actual = punto_siguiente(fila_actual, columna_actual, accion_actual)
+        camino.append([fila_actual, columna_actual])
+    return camino
 
 
 # Dibuja el camino más corto desde una posición hasta la meta
