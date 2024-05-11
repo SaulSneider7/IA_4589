@@ -122,6 +122,20 @@ for episode in range(1000):
         temporal_difference = recompensa + (descuento * np.max(valores_q[x, y, :])) - valor_q_actual
         nuevo_valor_q = valor_q_actual + (aprendizaje * temporal_difference)
 
+        valores_q[x_anterior, y_anterior, accion] = nuevo_valor_q
+        ventana.fill((0, 0, 0))
+
+        dibujar_laberinto(x, y)
+        pygame.display.flip()
+
+        if fin_del_juego(x, y):
+            if recompensas[x, y] == 100:
+                print("Ganaste")
+            else:
+                print("Perdiste")
+            break
+        
+print('Entrenamiento completado')
 # -------------------------------------------------------------------------
 # Sesión 4 - Resultados del entrenamiento
 
