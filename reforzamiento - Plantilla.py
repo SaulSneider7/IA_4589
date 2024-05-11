@@ -168,7 +168,9 @@ def dibuja_camino_mas_corto(inicio_x, inicio_y):
 
 # Prueba tu inteligencia artificial para resolver el laberinto desde varias posiciones iniciales
 # Escribe aquí tu codigo
-
+for ejemplo in range(3):
+    x, y = punto_inicial()
+    dibuja_camino_mas_corto(x, y)
 
 # -------------------------------------------------------------------------
 # No borres esta linea, deja esto siempre hasta el final
